@@ -8,7 +8,7 @@
 
 all: doc-toolbox doc-web
 
-VER=0.1
+VER=0.11
 BLOCKS=~/research/blocks
 VLFEAT=~/vltest
 MDOC=$(VLFEAT)/docsrc/mdoc.py
@@ -58,9 +58,16 @@ doc-distclean:
 	rm -rf doc
 
 post-web: doc-web
-	rsync -aP doc/ vision.ucla.edu:/var/www/vlblocks.org/ \
-				--exclude='downloads' \
-				--delete
+	rsync --recursive                                            \
+	      --perms                                                \
+	      --group=lab                                            \
+	      --chmod=Dg+s,g+w,o-w                                   \
+	      --progress                                             \
+	      --exclude=download                                     \
+	      --exclude=.htaccess                                    \
+				--exclude='downloads' 																 \
+				--delete																							 \
+				doc/ vision.ucla.edu:/var/www/vlblocks.org/ 
 
 post-doc: doc-web
 	rsync -aP --delete doc $(BLOCKS)
