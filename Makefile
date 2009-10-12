@@ -37,7 +37,10 @@ doc/index.html: \
 	$(PYTHON) $(WEBDOC) --outdir=doc \
 	     docsrc/web.xml --verbose
 	rsync -arv docsrc/images doc
+	rsync -arv docsrc/js doc
 	rsync -arv docsrc/web.css doc
+	rsync -arv docsrc/robots.txt doc
+	rsync -arv docsrc/favicon.ico doc
 
 #
 # Use mdoc.py to create the toolbox documentation that will be
@@ -53,3 +56,12 @@ docsrc/toolbox/mdoc.html : $(m_src) $(MDOC)
 doc-distclean:
 	rm -rf docsrc/toolbox
 	rm -rf doc
+
+post-web: doc-web
+	rsync -aP doc/ vision.ucla.edu:/var/www/vlblocks.org/ \
+				--exclude='downloads' \
+				--delete
+
+post-doc: doc-web
+	rsync -aP --delete doc $(BLOCKS)
+

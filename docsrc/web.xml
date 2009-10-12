@@ -11,7 +11,7 @@
  <meta>
   <!-- Stylesheets -->
   <link href="%pathto:root;web.css" rel="stylesheet" type="text/css"/>
-  <title>VLBlocks - %path;</title>
+  <title>Blocks - %path;</title>
   %pagestyle; 
   
   <!-- Scripts-->
@@ -33,7 +33,10 @@
    </form>
    <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
    <!-- Google CSE Search Box Ends -->
-   <h1>VLBlocks.org</h1>
+   <a href="%pathto:root;index.html">
+     <img border="0" src="%pathto:root;images/blocks.png" width="205"
+       height="36" alt="Blocks" /> 
+   </a>
   </div>
   <div id="headbanner">
    %path;
@@ -52,6 +55,7 @@
   </div> <!-- footer -->
   
   <!-- Google Analytics Begins -->
+  <script type="text/javascript" src="%pathto:root;js/gatag.js"></script>
   <script type="text/javascript">
    //<![CDATA[
     var localre = /vlblocks.org/;
@@ -95,6 +99,8 @@
   <page id="about" name="about" title="About"><include src="about.html"/></page>
  </page>
  <page id="download" name="download" title="Download"><include src="download.html"/>
+   <page id="license" name="license" title="License"><include
+       src="bsdlicense.html" /></page>
  </page>
 
   <dir name="mdoc">

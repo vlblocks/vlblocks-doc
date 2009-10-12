@@ -2,9 +2,7 @@
 
 <group>
 
-<p>The latest version of Blocks is <include src="version.html" />. To
-use Blocks, simply download and unpack the latest binary package and
-add the appropriate paths to your environment.</p>
+<p>The latest version of Blocks is <include src="version.html" />.</p>
 
 <div class="box">
 <h1>Downloads</h1>
@@ -17,7 +15,41 @@ add the appropriate paths to your environment.</p>
 
 <div class="clear">&nsbp;</div>
 
-<h1>Repository access</h1>
+<h1 id="download.install">MATLAB Installation</h1>
+
+<p><a href="%pathto:download;">Download</a> and unpack the latest
+Blocks distribution in a directory of your choice
+(e.g. <code>~/src/blocks</code>). Let <code>BLOCKSROOT</code> denote
+this directory.</p>
+
+<p>Blocks must be added to MATLAB search path by running
+the <code>blocks_setup</code> command found in
+the <code>BLOCKSROOT</code> directory. From MATLAB prompt
+enter</p>
+
+<pre>
+> cd BLOCKSROOT
+> blocks_setup
+</pre>
+
+<p><code>blocks_setup</code> alters the search path for the current MATLAB
+session only (it does not save the changes). To make the change
+permanent, add the following fragment to your
+<a href="http://www.google.com/search?q=site:www.mathworks.com+startup.m&amp;btnI=I"><code>startup.m</code> file</a>:</p>
+
+<pre>
+p=pwd ;
+cd BLOCKSROOT ;
+blocks_setup ;
+cd(p) ;
+clear p
+</pre>
+
+<p>Alternatively, you can use the
+<a href="http://www.google.com/search?q=site:www.mathworks.com+savepath&amp;btnI=I"><code>savepath</code>
+command</a> to save the updated search paths.</p>
+
+<h1 id="download.contributing">Repository access</h1>
 
 <p>Blocks is under active development. You
 can <a href="http://github.com/vlblocks/vlblocks/tree/master">browse our
