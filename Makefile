@@ -9,8 +9,8 @@
 all: doc-toolbox doc-web
 
 VER=0.11
-BLOCKS=~/research/blocks
-VLFEAT=~/vltest
+BLOCKS=../blocks
+VLFEAT=../vlfeat
 MDOC=$(VLFEAT)/docsrc/mdoc.py
 WEBDOC=$(VLFEAT)/docsrc/webdoc.py
 
